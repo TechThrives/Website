@@ -24,14 +24,19 @@ const navItems = [
     link: "/#about",
   },
   {
-    name: "Projects",
-    link: "/#projects",
+    name: "Services",
+    link: "/#services",
   },
   {
-    name: "Community",
-    link: "/#community",
+    name: "Work",
+    link: "/#work",
+  },
+  {
+    name: "Contact",
+    link: "/#contact",
   },
 ];
+
 
 export default function MainNavbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -42,8 +47,8 @@ export default function MainNavbar() {
         <NavbarLogo />
         <NavItems items={navItems} />
         <div className="flex items-center gap-4">
-          <NavbarButton href="/#community" variant="primary">
-            Join
+          <NavbarButton href="/#contact" variant="primary">
+            Connect
           </NavbarButton>
         </div>
       </NavBody>
@@ -68,12 +73,12 @@ export default function MainNavbar() {
           ))}
           <div className="flex w-full flex-col gap-4">
             <NavbarButton
-              href="/#community"
+              href="/#contact"
               onClick={() => setIsMobileMenuOpen(false)}
               variant="primary"
               className="w-full"
             >
-              Join
+              Connect
             </NavbarButton>
           </div>
         </MobileNavMenu>

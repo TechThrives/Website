@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import { TextGenerateEffect } from "@/components/ui/text-effects";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
@@ -7,7 +8,7 @@ import { AnimatedMembers } from "@/components/ui/animated-tooltip";
 import { Member } from "@/types/types";
 import Link from "next/link";
 
-export default function Community() {
+export default function Contact() {
   const [members, setMembers] = useState<Member[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -31,13 +32,13 @@ export default function Community() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center mx-6 w-full" id="community">
+    <div className="flex flex-col items-center justify-center mx-6 w-full" id="contact">
       <h1 className="my-6 mx-auto text-center text-3xl font-bold text-slate-700 md:text-4xl lg:text-6xl dark:text-slate-300">
-        Join Our Community
+        Join Our Network
       </h1>
       <TextGenerateEffect
         className="text-center text-md max-w-2xl"
-        words="Ready to be part of something innovative? Join our community today and start collaborating on projects that matter. "
+        words="Want to build something great? Whether you're a founder, product owner, or startup team — partner with us to bring your next digital product to life."
       />
       <div className="flex flex-col my-12 items-center justify-center mx-6 w-full">
         {loading && (
@@ -78,7 +79,7 @@ export default function Community() {
         <div className="flex gap-6">
           <HoverBorderGradient className="flex gap-2">
             <Link className="flex gap-2" href="https://discord.com/invite/xE9jBsjES6" target="_blank">
-              <IconBrandDiscord /> Join Discord
+              <IconBrandDiscord /> Let's Talk
             </Link>
           </HoverBorderGradient>
           <HoverBorderGradient>

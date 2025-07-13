@@ -1,9 +1,10 @@
 import MainNavbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
-import Projects from "@/components/sections/Projects";
-import Community from "@/components/sections/Community";
+import Work from "@/components/sections/Work";
+import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
+import Services from "@/components/sections/Services";
 
 export default function Home() {
   return (
@@ -11,8 +12,9 @@ export default function Home() {
       <MainNavbar />
       <Hero />
       <About />
-      <Projects />
-      <Community />
+      <Services />
+      <Work />
+      <Contact />
       <Footer/>
     </div>
   );

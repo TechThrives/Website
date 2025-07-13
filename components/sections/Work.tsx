@@ -5,11 +5,14 @@ import { ProjectCard } from "@/components/ui/project-card";
 import { useEffect, useState } from "react";
 import { Project } from "@/types/types";
 
-export default function Projects() {
+export default function Work() {
   const [hovered, setHovered] = useState<number | null>(null);
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const projectsPerPage = 6;
 
   useEffect(() => {
     async function fetchProjects() {
@@ -29,14 +32,27 @@ export default function Projects() {
     fetchProjects();
   }, []);
 
+  const indexOfLast = currentPage * projectsPerPage;
+  const indexOfFirst = indexOfLast - projectsPerPage;
+  const currentProjects = projects.slice(indexOfFirst, indexOfLast);
+  const totalPages = Math.ceil(projects.length / projectsPerPage);
+
+  const handlePageChange = (page: number) => {
+    const projectsSection = document.getElementById("work");
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: "smooth" });
+    }
+    setCurrentPage(page);
+  };
+
   return (
-    <div className="flex flex-col items-center justify-center mx-6 w-full" id="projects">
+    <div className="flex flex-col items-center justify-center mx-6 w-full" id="work">
       <h1 className="my-6 mx-auto text-center text-3xl font-bold text-slate-700 md:text-4xl lg:text-6xl dark:text-slate-300">
-        Featured Projects
+        Our Work
       </h1>
       <TextGenerateEffect
         className="text-center text-md max-w-2xl"
-        words="We believe in the power of teamwork, and this platform is our hub for developing, sharing, and improving projects that make a difference. "
+        words="Our team turns ideas into scalable digital solutions. Explore the apps, platforms, and tools we've engineered — designed to perform, built to scale."
       />
 
       {loading && (
@@ -69,11 +85,32 @@ export default function Projects() {
       )}
 
       {!loading && !error && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mx-auto w-full py-12 p-6">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} hovered={hovered} setHovered={setHovered} />
-          ))}
-        </div>
+        <>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mx-auto w-full py-12 p-6">
+            {currentProjects.map((project, index) => (
+              <ProjectCard key={index} project={project} index={index} hovered={hovered} setHovered={setHovered} />
+            ))}
+          </div>
+
+          {/* Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="flex gap-2 justify-center items-center mb-10">
+              {Array.from({ length: totalPages }, (_, i) => (
+                <button
+                  key={i}
+                  className={`px-4 py-2 rounded-full border transition-all text-sm ${
+                    currentPage === i + 1
+                      ? "bg-slate-800 text-white dark:bg-white dark:text-black"
+                      : "bg-transparent border-slate-400 text-slate-600 dark:text-slate-300 hover:bg-slate-700 hover:text-white"
+                  }`}
+                  onClick={() => handlePageChange(i + 1)}
+                >
+                  {i + 1}
+                </button>
+              ))}
+            </div>
+          )}
+        </>
       )}
     </div>
   );

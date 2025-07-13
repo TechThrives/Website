@@ -10,7 +10,7 @@ export default function Hero() {
     <div className="flex flex-col items-center text-center lg:text-start lg:px-12 lg:flex-row" id="home">
       <div className="px-4 py-10 md:py-20">
         <h1 className="relative z-10 mx-auto max-w-4xl text-3xl font-bold text-slate-700 md:text-4xl lg:text-6xl dark:text-slate-300">
-          {"Where Innovation Meets Technology".split(" ").map((word, index) => (
+          {"Build Future Ready Tech With Us".split(" ").map((word, index) => (
             <motion.span
               key={index}
               initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
@@ -39,7 +39,8 @@ export default function Hero() {
           }}
           className="relative z-10 max-w-xl py-4 text-md font-normal text-neutral-600 dark:text-neutral-400"
         >
-          A collaborative GitHub organization for developing, sharing, and improving projects that make a difference.
+          We design and develop high-quality web apps, mobile apps, and digital products tailored to your vision. From
+          idea to launch — we bring your tech dreams to life.
         </motion.p>
         <motion.div
           initial={{
@@ -58,10 +59,10 @@ export default function Hero() {
             className="transform rounded-lg bg-black px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 cursor-pointer"
             asChild
           >
-            <Link href="#community">Join Community</Link>
+            <Link href="#contact">Get Started</Link>
           </Button>
           <Button className="transform rounded-lg border border-gray-300 bg-white px-6 py-2 font-medium text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-100 dark:border-gray-700 dark:bg-black dark:text-white dark:hover:bg-gray-900 cursor-pointer">
-            <Link href="#projects">View Projects</Link>
+            <Link href="#work">View Our Work</Link>
           </Button>
         </motion.div>
       </div>

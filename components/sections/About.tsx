@@ -1,11 +1,11 @@
 import {
+  IconCloudUpload,
   IconCode,
-  IconGitBranch,
-  IconHeartCode,
-  IconMessageDots,
+  IconDeviceMobileCode,
+  IconLayoutDashboard,
   IconRocket,
-  IconSchool,
-  IconSettingsAutomation,
+  IconServerCog,
+  IconStack,
   IconUsers,
 } from "@tabler/icons-react";
 import { TextGenerateEffect } from "@/components/ui/text-effects";
@@ -14,44 +14,45 @@ import { About } from "@/components/ui/cards";
 export default function FeaturesSection() {
   const abouts = [
     {
-      title: "Open Source First",
-      description: "Built on the spirit of sharing, learning, and improving code together.",
+      title: "Custom Product Development",
+      description:
+        "We turn your ideas into fully functional web and mobile applications — tailored to your business needs.",
       icon: <IconCode />,
     },
     {
-      title: "Collaborative Development",
-      description: "Work on real-world projects with contributors from all over the globe.",
+      title: "Full-Stack Expertise",
+      description: "From backend architecture to sleek frontends — our team handles the entire tech stack.",
+      icon: <IconStack />,
+    },
+    {
+      title: "Cross-Platform Apps",
+      description: "Build once, run everywhere. We create seamless experiences across iOS, Android, and the web.",
+      icon: <IconDeviceMobileCode />,
+    },
+    {
+      title: "Agile Collaboration",
+      description: "Work closely with our team using agile methods, rapid iterations, and constant feedback.",
       icon: <IconUsers />,
     },
     {
-      title: "Version Control Mastery",
-      description: "Track every change, roll back mistakes, and maintain clean code history with Git.",
-      icon: <IconGitBranch />,
+      title: "Scalable Architecture",
+      description: "We engineer systems built to grow — whether you’re serving 100 users or 100,000.",
+      icon: <IconServerCog />,
     },
     {
-      title: "Community Driven",
-      description: "Driven by passionate developers who review, discuss, and build together.",
-      icon: <IconMessageDots />,
+      title: "UI/UX Design Focused",
+      description: "Intuitive interfaces meet engaging experiences — designed with your users in mind.",
+      icon: <IconLayoutDashboard />,
     },
     {
-      title: "Learning by Doing",
-      description: "From beginners to pros — contribute, review, and grow your skills on real codebases.",
-      icon: <IconSchool />,
+      title: "DevOps & Deployment",
+      description: "CI/CD pipelines, cloud infrastructure, and stress-free launches — handled by us.",
+      icon: <IconCloudUpload />,
     },
     {
-      title: "Hackathons & Projects",
-      description: "Join community events, collaborate on exciting builds, and get noticed.",
+      title: "Startup Friendly",
+      description: "Whether you're MVP-ing or scaling fast, we’re the right tech partner at every stage.",
       icon: <IconRocket />,
-    },
-    {
-      title: "CI/CD Integration",
-      description: "Automate testing, deployment, and delivery with powerful GitHub Actions workflows.",
-      icon: <IconSettingsAutomation />,
-    },
-    {
-      title: "Inclusive for All",
-      description: "Welcoming contributors of all skill levels — from your first PR to your thousandth.",
-      icon: <IconHeartCode />,
     },
   ];
 
@@ -62,7 +63,7 @@ export default function FeaturesSection() {
       </h1>
       <TextGenerateEffect
         className="text-center text-md max-w-2xl"
-        words="We believe in the power of teamwork, and this platform is our hub for developing, sharing, and improving projects that make a difference. "
+        words="We’re a product-focused development studio helping startups and businesses bring their tech ideas to life. From concept to deployment — we craft scalable, beautiful, and high-performing applications across web and mobile platforms."
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 py-10 max-w-7xl mx-auto">
         {abouts.map((feature, index) => (
