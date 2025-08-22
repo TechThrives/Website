@@ -1,13 +1,79 @@
 "use client";
 
 import { motion } from "motion/react";
-import { ImageCard } from "@/components/ui/cards";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import RadialOrbitalTimeline from "../ui/radical-orbital-timeline";
+import { Calendar, Clock, Code, FileText, User } from "lucide-react";
+
+const getNextMonth = (month: number) => {
+  return new Date(Date.now() + month * 30 * 24 * 60 * 60 * 1000).toLocaleDateString("en-US", {
+    month: "short",
+    year: "numeric",
+  });
+};
+
+const timelineData = [
+  {
+    id: 1,
+    title: "Planning",
+    date: getNextMonth(0),
+    content: "Project planning and requirements gathering phase.",
+    category: "Planning",
+    icon: Calendar,
+    relatedIds: [2],
+    status: "Phase 1",
+    energy: 60,
+  },
+  {
+    id: 2,
+    title: "Design",
+    date: getNextMonth(1),
+    content: "UI/UX design and system architecture.",
+    category: "Design",
+    icon: FileText,
+    relatedIds: [1, 3],
+    status: "Phase 2",
+    energy: 60,
+  },
+  {
+    id: 3,
+    title: "Development",
+    date: getNextMonth(2),
+    content: "Core features implementation and testing.",
+    category: "Development",
+    icon: Code,
+    relatedIds: [2, 4],
+    status: "Phase 3",
+    energy: 60,
+  },
+  {
+    id: 4,
+    title: "Testing",
+    date: getNextMonth(3),
+    content: "User testing and bug fixes.",
+    category: "Testing",
+    icon: User,
+    relatedIds: [3, 5],
+    status: "Phase 4",
+    energy: 60,
+  },
+  {
+    id: 5,
+    title: "Release",
+    date: getNextMonth(4),
+    content: "Final deployment and release.",
+    category: "Release",
+    icon: Clock,
+    relatedIds: [4],
+    status: "Phase 5",
+    energy: 60,
+  },
+];
 
 export default function Hero() {
   return (
-    <div className="flex flex-col items-center text-center lg:text-start lg:px-12 lg:flex-row" id="home">
+    <div className="flex flex-col items-center text-center w-full lg:text-start lg:px-12 lg:flex-row" id="home">
       <div className="px-4 py-10 md:py-20">
         <h1 className="relative z-10 mx-auto max-w-4xl text-3xl font-bold text-slate-700 md:text-4xl lg:text-6xl dark:text-slate-300">
           {"Build Future Ready Tech With Us".split(" ").map((word, index) => (
@@ -68,6 +134,7 @@ export default function Hero() {
       </div>
 
       <motion.div
+        className="flex w-full h-full"
         initial={{
           opacity: 0,
         }}
@@ -79,7 +146,7 @@ export default function Hero() {
           delay: 1,
         }}
       >
-        <ImageCard />
+        <RadialOrbitalTimeline timelineData={timelineData} />
       </motion.div>
     </div>
   );
